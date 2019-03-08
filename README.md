@@ -1,1 +1,8 @@
-# infra-auth-api
+# infra-authentication-server
+
+# Instructions
+
+```
+yarn
+yarn start
+```
