@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/roleschange", async function(req, res) {
-  const results = await fetch("http://127.0.0.1:8000/rolesChange", {
+  const results = await fetch(SERVER_URL + "/rolesChange", {
     // change this to actual server
     method: "POST",
     headers: {
