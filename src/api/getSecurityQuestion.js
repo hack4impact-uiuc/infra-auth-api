@@ -1,7 +1,7 @@
-import SERVER_URL from "../components/globalServerUrl.js";
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
 const { sendResponse } = require("./../utils/sendResponse");
+const SERVER_URL = require("./../utils/globalServerUrl");
 
 router.get("/getSecurityQuestion", async function(req, res) {
   const results = await fetch(SERVER_URL + "/getSecurityQuestion", {

@@ -1,4 +1,4 @@
-import SERVER_URL from "../components/globalServerUrl.js";
+const SERVER_URL = require("./../utils/globalServerUrl");
 const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const { sendResponse } = require("./../utils/sendResponse");
-const API_URL = "http://127.0.0.1:8000";
+const SERVER_URL = require("./../utils/globalServerUrl");
 
 async apiFetchExample => {
   const result = await login(res.body.email, res.body.password);
@@ -12,7 +12,7 @@ async apiFetchExample => {
 
 router.post("/login", async function(req, res) {
   event.preventDefault();
-  const results = await fetch(`http://localhost:8000/login`, {
+  const results = await fetch(SERVER_URL + "/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
