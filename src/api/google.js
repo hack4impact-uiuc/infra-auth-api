@@ -1,10 +1,9 @@
-import SERVER_URL from "../components/globalServerUrl.js";
 const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 const fetch = require("node-fetch");
 
 router.post("/google", async function(req, res) {
-  const results = await fetch(SERVER_URL + "/google", {
+  const results = await fetch("http://localhost:8000" + "/google", {
     // change this to actual server
     method: "POST",
     headers: {

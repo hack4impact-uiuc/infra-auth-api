@@ -1,9 +1,8 @@
-import SERVER_URL from "../components/globalServerUrl.js";
 const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/passwordReset", async function(req, res) {
-  const results = await fetch(SERVER_URL + "/passwordReset", {
+  const results = await fetch("http://localhost:8000" + "/passwordReset", {
     // change this to actual server
     method: "POST",
     headers: {
