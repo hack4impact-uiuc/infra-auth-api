@@ -7,7 +7,7 @@ const User = require("../models/User");
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/addSecurityQuestion", async function(req, res) {
-  const results = await fetch(SERVER_URL + "/addSecurityQuestion", {
+  const results = await fetch("http://localhost:8000/addSecurityQuestion", {
     // change this to actual server
     method: "POST",
     headers: {

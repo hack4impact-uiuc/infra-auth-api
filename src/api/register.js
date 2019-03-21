@@ -3,17 +3,8 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 // const fetch = require("isomorphic-unfetch");
 const { sendResponse } = require("./../utils/sendResponse");
-const SERVER_URL = require("./../utils/globalServerUrl");
-
-// async apiFetchExample => {
-//   const result = await login(res.body.email, res.body.password);
-//   const parsed = await result.json();
-//   return parsed;
-// };
 
 router.post("/register", async function(req, res) {
-  console.log("HERE");
-  // event.preventDefault();
   console.log(req.body);
   const body = {
     email: req.body.email,
@@ -22,7 +13,6 @@ router.post("/register", async function(req, res) {
   };
   console.log(body);
   try {
-    // const url = SERVER_URL + "/register"
     const results = await fetch("http://localhost:8000/register/", {
       method: "POST",
       headers: {
@@ -32,7 +22,6 @@ router.post("/register", async function(req, res) {
     });
 
     const resp = await results.json();
-    console.log(resp);
 
     if (!resp.token) {
       sendResponse(res, 400, resp.message);
@@ -44,7 +33,6 @@ router.post("/register", async function(req, res) {
       });
     }
   } catch (e) {
-    console.log("FAIL");
     console.log(e);
   }
 });
