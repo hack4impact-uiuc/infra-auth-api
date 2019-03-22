@@ -15,7 +15,6 @@ router.post("/passwordReset", async function(req, res) {
     })
   });
   const parsed = await results.json();
-  console.log(parsed);
   res.send(parsed);
 });
 

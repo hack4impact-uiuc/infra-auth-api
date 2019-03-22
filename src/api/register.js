@@ -9,26 +9,22 @@ router.post("/register", async function(req, res) {
     password: req.body.password,
     role: req.body.role
   };
-  try {
-    const results = await fetch("http://localhost:8000/register/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
+  const results = await fetch("http://localhost:8000/register/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+  const resp = await results.json();
+  if (!resp.token) {
+    sendResponse(res, 400, resp.message);
+  } else {
+    sendResponse(res, 200, resp.message, {
+      token: resp.token,
+      userID: resp.uid,
+      permission: resp.permission
     });
-    const resp = await results.json();
-    if (!resp.token) {
-      sendResponse(res, 400, resp.message);
-    } else {
-      sendResponse(res, 200, resp.message, {
-        token: resp.token,
-        userID: resp.uid,
-        permission: resp.permission
-      });
-    }
-  } catch (e) {
-    console.log(e);
   }
 });
 
