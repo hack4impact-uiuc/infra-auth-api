@@ -4,7 +4,6 @@ const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/forgotPassword", async function(req, res) {
   const results = await fetch("http://localhost:8000/forgotPassword", {
-    // change this to actual server
     method: "POST",
     headers: {
       "Content-Type": "application/json"

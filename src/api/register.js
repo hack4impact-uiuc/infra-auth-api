@@ -1,17 +1,14 @@
 const router = require("express").Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-// const fetch = require("isomorphic-unfetch");
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/register", async function(req, res) {
-  console.log(req.body);
   const body = {
     email: req.body.email,
     password: req.body.password,
     role: req.body.role
   };
-  console.log(body);
   try {
     const results = await fetch("http://localhost:8000/register/", {
       method: "POST",
@@ -20,9 +17,7 @@ router.post("/register", async function(req, res) {
       },
       body: JSON.stringify(body)
     });
-
     const resp = await results.json();
-
     if (!resp.token) {
       sendResponse(res, 400, resp.message);
     } else {

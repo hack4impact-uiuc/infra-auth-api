@@ -1,16 +1,16 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
 const { sendResponse } = require("./../utils/sendResponse");
-const SERVER_URL = require("./../utils/globalServerUrl");
 
-router.post("/getSecurityQuestion", async function(req, res) {
-  const results = await fetch("http://localhost:8000/getSecurityQuestion", {
+router.post("/changePassword", async function(req, res) {
+  const results = await fetch("http://localhost:8000/changePassword", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      token: req.header.token
     },
     body: JSON.stringify({
-      email: req.body.email
+      password: req.body.password
     })
   });
   const parsed = await results.json();

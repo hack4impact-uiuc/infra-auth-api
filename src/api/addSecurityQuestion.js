@@ -8,16 +8,14 @@ const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/addSecurityQuestion", async function(req, res) {
   const results = await fetch("http://localhost:8000/addSecurityQuestion", {
-    // change this to actual server
     method: "POST",
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      token: req.header.token
     },
     body: JSON.stringify({
       question: req.body.question,
-      answer: req.body.answer,
-      token: req.body.token
+      answer: req.body.answer
     })
   });
   const parsed = await results.json();

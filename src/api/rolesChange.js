@@ -3,11 +3,7 @@ const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/roleschange", async function(req, res) {
-  console.log(req.body.userEmail);
-  console.log(req.body.newRole);
-
   const results = await fetch("http://localhost:8000/rolesChange", {
-    // change this to actual server
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +15,6 @@ router.post("/roleschange", async function(req, res) {
     })
   });
   const parsed = await results.json();
-  console.log(parsed);
   res.send(parsed);
 });
 

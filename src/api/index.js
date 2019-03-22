@@ -10,5 +10,6 @@ router.use("/", require("./addSecurityQuestion"));
 router.use("/", require("./roles"));
 router.use("/", require("./rolesChange"));
 router.use("/", require("./verify"));
+router.use("/", require("./changePassword"));
 
 module.exports = router;

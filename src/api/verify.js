@@ -5,14 +5,11 @@ const { sendResponse } = require("./../utils/sendResponse");
 router.post("/verify", async function(req, res) {
   try {
     const results = await fetch("http://localhost:8000/verify", {
-      // change this to actual server
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        token: req.body.token
-      })
+        "Content-Type": "application/json",
+        header: req.header.token
+      }
     });
     const parsed = await results.json();
     if (results.status == 200) {
