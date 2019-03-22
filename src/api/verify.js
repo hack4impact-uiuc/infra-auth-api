@@ -3,15 +3,17 @@ const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/verify", async function(req, res) {
+  console.log(req.headers.token);
   try {
     const results = await fetch("http://localhost:8000/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        header: req.header.token
+        token: req.headers.token
       }
     });
     const parsed = await results.json();
+    console.log(parsed);
     if (results.status == 200) {
       res.send(parsed);
     } else {

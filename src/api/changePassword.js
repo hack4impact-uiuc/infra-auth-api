@@ -7,7 +7,7 @@ router.post("/changePassword", async function(req, res) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      token: req.header.token
+      token: req.headers.token
     },
     body: JSON.stringify({
       password: req.body.password
