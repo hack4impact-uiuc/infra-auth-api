@@ -10,7 +10,8 @@ router.post("/changePassword", async function(req, res) {
       token: req.headers.token
     },
     body: JSON.stringify({
-      password: req.body.password
+      currentPassword: req.body.currentPassword,
+      newPassword: req.body.newPassword
     })
   });
   const parsed = await results.json();
