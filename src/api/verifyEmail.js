@@ -11,7 +11,7 @@ router.post("/verifyEmail", async function(req, res) {
       },
       body: JSON.stringify({
         email: req.body.email,
-        password: req.body.pin
+        pin: req.body.pin
       })
     });
     const parsed = await results.json();
@@ -19,7 +19,7 @@ router.post("/verifyEmail", async function(req, res) {
       res.send(parsed);
     } else {
       console.log(parsed);
-      sendResponse(res, 400, "Cannot verify the PIN");
+      sendResponse(res, 400, parsed.message);
     }
   } catch (e) {
     sendResponse(res, 400, e);
