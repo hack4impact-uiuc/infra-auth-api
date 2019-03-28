@@ -11,7 +11,8 @@ router.post("/roleschange", async function(req, res) {
     },
     body: JSON.stringify({
       userEmail: req.body.userEmail,
-      newRole: req.body.newRole
+      newRole: req.body.newRole,
+      password: req.body.password
     })
   });
   const parsed = await results.json();
