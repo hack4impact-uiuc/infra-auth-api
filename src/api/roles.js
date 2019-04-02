@@ -7,7 +7,8 @@ router.get("/roles", async function(req, res) {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      token: req.headers.token
+      token: req.headers.token,
+      google: req.headers.google
     }
   });
   const parsed = await results.json();
