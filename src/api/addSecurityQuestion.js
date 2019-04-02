@@ -15,7 +15,8 @@ router.post("/addSecurityQuestion", async function(req, res) {
     },
     body: JSON.stringify({
       question: req.body.question,
-      answer: req.body.answer
+      answer: req.body.answer,
+      password: req.body.password
     })
   });
   const parsed = await results.json();
