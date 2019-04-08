@@ -3,27 +3,18 @@ const router = require("express").Router();
 const { sendResponse } = require("./../utils/sendResponse");
 
 router.post("/verifyEmail", async function(req, res) {
-  try {
-    const results = await fetch("http://localhost:8000/verifyEmail", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: req.body.email,
-        pin: req.body.pin
-      })
-    });
-    const parsed = await results.json();
-    if (parsed.status == 200) {
-      res.send(parsed);
-    } else {
-      console.log(parsed);
-      sendResponse(res, 400, parsed.message);
-    }
-  } catch (e) {
-    sendResponse(res, 400, e);
-  }
+  const results = await fetch("http://localhost:8000/verifyEmail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      token: req.headers.token
+    },
+    body: JSON.stringify({
+      pin: req.body.pin
+    })
+  });
+  const parsed = await results.json();
+  res.send(parsed);
 });
 
 module.exports = router;
