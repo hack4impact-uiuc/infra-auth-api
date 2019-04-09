@@ -11,7 +11,8 @@ router.post("/passwordReset", async function(req, res) {
     body: JSON.stringify({
       email: req.body.email,
       pin: req.body.pin,
-      password: req.body.password
+      password: req.body.password,
+      answer: req.body.answer
     })
   });
   const parsed = await results.json();
