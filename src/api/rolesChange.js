@@ -7,7 +7,8 @@ router.post("/roleschange", async function(req, res) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      token: req.headers.token
+      token: req.headers.token,
+      google: req.headers.google
     },
     body: JSON.stringify({
       userEmail: req.body.userEmail,
