@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-router.get("/getSecurityQuestions", async function(req, res) {
-  const results = await fetch("http://localhost:8000/getSecurityQuestions", {
+router.get("/getSecurityQuestionForUser", async function(req, res) {
+  const results = await fetch("http://localhost:8000/getSecurityQuestionForUser", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
