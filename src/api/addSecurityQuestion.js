@@ -1,20 +1,14 @@
-const SERVER_URL = require("./../utils/globalServerUrl");
 const router = require("express").Router();
-const cors = require("cors");
-const jwt = require("jsonwebtoken");
 
-const User = require("../models/User");
-const { sendResponse } = require("./../utils/sendResponse");
-
-router.post("/addSecurityQuestion", async function(req, res) {
-  const results = await fetch("http://localhost:8000/addSecurityQuestion", {
+router.post("/addSecurityQuestionAnswer", async function(req, res) {
+  const results = await fetch("http://localhost:8000/addSecurityQuestionAnswer", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       token: req.headers.token
     },
     body: JSON.stringify({
-      question: req.body.question,
+      questionIdx: req.body.questionIdx,
       answer: req.body.answer,
       password: req.body.password
     })
