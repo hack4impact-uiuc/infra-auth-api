@@ -6,6 +6,9 @@ router.get("/getSecurityQuestionForUser", async function(req, res) {
     headers: {
       "Content-Type": "application/json",
       ...req.headers
+    },
+    body: {
+      email: req.body.email
     }
   });
   const parsed = await results.json();
