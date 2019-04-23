@@ -7,7 +7,9 @@ router.post("/register", async function(req, res) {
   const body = {
     email: req.body.email,
     password: req.body.password,
-    role: req.body.role
+    role: req.body.role,
+    questionIdx: req.body.questionIdx,
+    answer: req.body.answer
   };
   const results = await fetch("http://localhost:8000/register/", {
     method: "POST",
