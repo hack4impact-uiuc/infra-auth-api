@@ -5,7 +5,7 @@ router.get("/getSecurityQuestions", async function(req, res) {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      ...req.headers
+      token: req.headers.token
     }
   });
   const parsed = await results.json();
